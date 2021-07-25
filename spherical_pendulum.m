@@ -50,10 +50,12 @@ min_z = min(rz)-l/2;
 max_z = 0;
 
 figure
-set(gcf,'Position',[270   140   640     360  ])
+% set(gcf,'Position',[50 50 1280 720]) % YouTube: 720p
+% set(gcf,'Position',[50 50 854 480]) % YouTube: 480p
+set(gcf,'Position',[50 50 640 640]) % Social
 
 % Create and open video writer object
-v = VideoWriter('spherical_pendulum.avi');
+v = VideoWriter('spherical_pendulum.mp4','MPEG-4');
 v.Quality = 100;
 open(v);
     
@@ -62,6 +64,7 @@ set(gca,'CameraPosition',[42.0101   30.8293   16.2256])
 set(gca,'XLim',[min_x max_x])
 set(gca,'YLim',[min_y max_y])
 set(gca,'ZLim',[min_z max_z])
+set(gca,'XTickLabel',[],'YTickLabel',[],'ZTickLabel',[])
 
 for i = 1:length(rx)
     
